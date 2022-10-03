@@ -20,14 +20,12 @@ export class TestCarritoComponent implements OnInit {
   seleccionarProducto(producto: any) {
 
     if (this.carrito.length == 0) {
-
-      this.carrito.push({ id: producto.id, cantidad: 0 })
-      console.log(this.carrito)
+      this.carrito.push({ id: producto.id, cantidad: 0, precio: producto.precio })
     }
     if (this.carrito.length != 0) {
       this.carrito.find(ele => ele.id == producto.id)
       if (this.carrito.find(ele => ele.id == producto.id) == undefined) {
-        this.carrito.push({ id: producto.id, cantidad: 1 })
+        this.carrito.push({ id: producto.id, cantidad: 1, precio: producto.precio })
       } else {
         this.carrito.find(ele => {
           if (ele.id == producto.id) {
